@@ -45,7 +45,7 @@
     <p class="lead">Professional carpet, upholstery, and tile cleaning that leaves your home looking refreshed and feeling comfortable again.</p>
     <div class="hero-actions">
       <a href="tel:18303288614" class="btn btn-gold">Call 830-328-8614</a>
-      <a href="mailto:royaltreatmentclean@outlook.com?subject=Free%20Cleaning%20Estimate" class="btn btn-outline-dark">Email for an estimate</a>
+      <a href="#contact" class="btn btn-outline-dark">Get a free estimate</a>
     </div>
     <div class="hero-checks">
       <span>Residential care</span>
@@ -71,7 +71,7 @@
         <p>Rainy days happen. Ground-in dirt and muddy traffic don't have to linger.</p>
       </div>
     </div>
-    <a href="tel:18303288614">Schedule a cleaning &rarr;</a>
+    <a href="#contact">Schedule a cleaning &rarr;</a>
   </div>
 </div>
 
@@ -191,6 +191,18 @@
   </div>
 </section>
 
+<section class="before-after" id="before-after">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">See the difference</span>
+        <h2>Before &amp; after.</h2>
+      </div>
+    </div>
+    <div class="ba-grid" id="beforeAfterGrid"></div>
+  </div>
+</section>
+
 <section class="why-us" id="about">
   <div class="container why-grid">
     <div class="why-brand">
@@ -211,18 +223,41 @@
 </section>
 
 <section class="reviews">
-  <div class="container reviews-grid">
-    <div class="reviews-copy">
-      <span class="eyebrow">Google reviews</span>
-      <h2>See what customers say after the Royal Treatment.</h2>
-      <p>Read genuine feedback from local customers about our carpet, upholstery, and tile cleaning services.</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=Royal%20Treatment%20Carpet%20Cleaning%20Bandera%20TX%20830-328-8614" target="_blank" rel="noopener" class="btn btn-dark">Read our Google reviews &#8599;</a>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Google reviews</span>
+        <h2>See what customers say after the Royal Treatment.</h2>
+      </div>
+      <div class="reviews-actions">
+        <a href="https://www.google.com/maps?cid=1706301989705631566" target="_blank" rel="noopener" class="btn btn-dark">Read our Google reviews &#8599;</a>
+        <a href="https://www.google.com/maps?cid=1706301989705631566" target="_blank" rel="noopener" class="btn btn-outline-dark">Write a review &#8599;</a>
+      </div>
     </div>
-    <div class="review-card">
-      <div class="g-badge"><span class="g-icon">G</span> Google Reviews</div>
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <h3>Real feedback. Local homes. Royal results.</h3>
-      <p>Visit our Google profile to explore recent customer experiences and see why homeowners trust Royal Treatment.</p>
+
+    <div class="review-summary">
+      <span class="g-badge"><span class="g-icon">G</span> Google Reviews</span>
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <strong>5.0</strong>
+      <span>(7 reviews)</span>
+    </div>
+
+    <div class="reviews-grid">
+      <blockquote class="review-quote">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Highly recommend this guy! Does a great job, our carpets look brand new after he's finished! Friendly and easy to communicate with about getting on the schedule.&rdquo;</p>
+        <cite>April Bland <span>&middot; Local Guide &middot; 2 months ago</span></cite>
+      </blockquote>
+      <blockquote class="review-quote">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;I highly recommend Royal Treatment! I hired them for a move out cleaning of my large carpeted living room. They were also able to do a repair near a high traffic area. Everything looks like new!&rdquo;</p>
+        <cite>Tara Green <span>&middot; a year ago</span></cite>
+      </blockquote>
+      <blockquote class="review-quote">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;The gentleman's name is Victor. He was very reasonably priced and showed up as promised. He did a fantastic job! My tile never looked so good! Highly recommend.&rdquo;</p>
+        <cite>Dalton Morse <span>&middot; a year ago</span></cite>
+      </blockquote>
     </div>
   </div>
 </section>
@@ -257,14 +292,59 @@
 
 <section class="cta-banner" id="contact">
   <div class="container cta-grid">
-    <div>
+    <div class="cta-copy">
       <span class="eyebrow">Ready for a fresh start?</span>
       <h2>Let's give your home the <img src="assets/img/royal-treatment-script.png" alt="Royal Treatment" class="script">.</h2>
-      <p>Tell us what you need cleaned and we'll help you take the next step.</p>
+      <p>Fill out the form and we'll follow up to confirm your estimate, or reach us directly:</p>
+      <div class="cta-actions">
+        <a href="tel:18303288614" class="btn btn-dark">Call 830-328-8614</a>
+        <a href="mailto:royaltreatmentclean@outlook.com?subject=Free%20Cleaning%20Estimate" class="btn btn-outline-gold">royaltreatmentclean@outlook.com</a>
+      </div>
     </div>
-    <div class="cta-actions">
-      <a href="tel:18303288614" class="btn btn-dark">Call 830-328-8614</a>
-      <a href="mailto:royaltreatmentclean@outlook.com?subject=Free%20Cleaning%20Estimate" class="btn btn-outline-gold">royaltreatmentclean@outlook.com</a>
+
+    <div class="contact-form-card">
+      <div class="form-status" id="formStatus"></div>
+      <form id="estimateForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="service">Service needed <span class="required">*</span></label>
+            <select id="service" name="service" required>
+              <option value="">Select&hellip;</option>
+              <option>Carpet Cleaning</option>
+              <option>Upholstery Cleaning</option>
+              <option>Tile &amp; Grout Cleaning</option>
+              <option>Multiple services</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Tell us about your space</label>
+          <textarea id="details" name="details" placeholder="Rooms/areas to clean, approximate size, and preferred timing"></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="New estimate request — Royal Treatment">
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" class="btn btn-gold btn-block" id="submitBtn">Request my free estimate</button>
+        <p class="form-note">This sends a request straight to our team &mdash; we'll follow up by phone or email to confirm details.</p>
+      </form>
     </div>
   </div>
 </section>

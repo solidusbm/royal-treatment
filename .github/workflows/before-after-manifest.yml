@@ -1,0 +1,31 @@
+name: Update before/after manifest
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "assets/img/before-after/*.jpg"
+      - "assets/img/before-after/*.jpeg"
+      - "assets/img/before-after/*.png"
+      - "assets/img/before-after/*.webp"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate manifest from uploaded before/after images
+        run: node .github/scripts/build-before-after-manifest.js
+
+      - name: Commit manifest if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/before-after.json
+          git diff --staged --quiet || git commit -m "Update before/after manifest"
+          git push
