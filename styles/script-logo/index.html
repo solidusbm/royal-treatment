@@ -37,35 +37,37 @@
   .compare-card .note { padding: 0 24px; margin: 14px 0 0; font-size: 0.85rem; color: var(--muted); }
   .demo-context {
     background: #fbf8f0;
-    padding: 40px 24px;
+    padding: 56px 32px;
   }
   .demo-context .sentence {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(28px, 4vw, 44px);
-    letter-spacing: -0.03em;
-    line-height: 1.05;
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: -0.045em;
+    line-height: 1.0;
     color: #151515;
-    max-width: 620px;
+    max-width: 720px;
   }
-  .demo-context .sentence img { display: inline-block; vertical-align: -0.12em; width: min(100%, 320px); height: auto; margin-top: 4px; }
+  .demo-context .sentence img { display: inline-block; vertical-align: -0.12em; width: min(100%, 610px); height: auto; margin-top: 8px; }
   .standalone-row {
-    padding: 24px 24px 32px;
+    padding: 28px 32px 36px;
     display: flex;
-    align-items: center;
-    gap: 24px;
+    align-items: flex-end;
+    gap: 32px;
     flex-wrap: wrap;
   }
-  .standalone-row .swatch-sm, .standalone-row .swatch-lg {
+  .standalone-row .swatch-sm, .standalone-row .swatch-lg, .standalone-row .swatch-zoom {
     background: #fff;
     border: 1px solid var(--tan);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 26px;
+    padding: 20px 30px;
   }
-  .standalone-row .swatch-sm img { height: 28px; width: auto; }
-  .standalone-row .swatch-lg img { height: 60px; width: auto; }
-  .standalone-row .swatch-label { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 6px; }
+  .standalone-row .swatch-sm img { width: 220px; height: auto; }
+  .standalone-row .swatch-lg img { width: 610px; max-width: 100%; height: auto; }
+  .standalone-row .swatch-zoom { padding: 14px; overflow: hidden; width: 260px; height: 160px; }
+  .standalone-row .swatch-zoom img { width: 900px; height: auto; max-width: none; transform: translate(-60px, -30px); }
+  .standalone-row .swatch-label { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 8px; }
   .standalone-col { display: flex; flex-direction: column; align-items: center; }
 </style>
 </head>
@@ -104,7 +106,11 @@
         </div>
         <div class="standalone-col">
           <div class="swatch-lg"><img src="../../v1/assets/img/royal-treatment-script.png" alt="Royal Treatment"></div>
-          <span class="swatch-label">Large (as used in hero)</span>
+          <span class="swatch-label">Large (max hero size, 610px)</span>
+        </div>
+        <div class="standalone-col">
+          <div class="swatch-zoom"><img src="../../v1/assets/img/royal-treatment-script.png" alt="Royal Treatment"></div>
+          <span class="swatch-label">Zoomed crop (artifacting detail)</span>
         </div>
       </div>
     </div>
@@ -125,7 +131,11 @@
         </div>
         <div class="standalone-col">
           <div class="swatch-lg"><img src="../../v1/assets/img/royal-treatment-script-upscaled.png" alt="Royal Treatment"></div>
-          <span class="swatch-label">Large (as used in hero)</span>
+          <span class="swatch-label">Large (max hero size, 610px)</span>
+        </div>
+        <div class="standalone-col">
+          <div class="swatch-zoom"><img src="../../v1/assets/img/royal-treatment-script-upscaled.png" alt="Royal Treatment"></div>
+          <span class="swatch-label">Zoomed crop (artifacting detail)</span>
         </div>
       </div>
     </div>
