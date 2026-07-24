@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Treatment — Action Items</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../css/hub.css">
+<style>
+  .todo-list { display: flex; flex-direction: column; gap: 14px; }
+  .todo-item {
+    background: #fff;
+    border: 1px solid var(--tan);
+    border-left: 4px solid var(--gold-dark);
+    border-radius: 8px;
+    padding: 18px 22px;
+  }
+  .todo-item.blocked { border-left-color: #b23b3b; }
+  .todo-item .top-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .todo-item h3 { font-size: 1.05rem; margin: 0; }
+  .todo-item .who {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--cream-2);
+    color: var(--muted);
+  }
+  .todo-item .who.you { background: #fdecec; color: #a23a3a; }
+  .todo-item .who.claude { background: #eaf3ec; color: #2f6b45; }
+  .todo-item p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  .todo-item a.inline-link { color: var(--gold-dark); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="hub-header">
+  <div class="brand">
+    <img src="../v1/assets/img/header-logo.webp" alt="Royal Treatment">
+    <div class="brand-text">
+      <strong>Royal Treatment</strong>
+      <span>Action items</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <a class="back-link" href="../">&larr; Back to all versions</a>
+
+  <p class="intro">Open decisions and to-dos for the site, tracked in one place. Items tagged <span class="who you" style="padding:3px 9px;">You</span> need input or an action from you; <span class="who claude" style="padding:3px 9px;">Claude</span> items I can pick up once unblocked.</p>
+
+  <section class="hub-section">
+    <h2>Needs your decision or action</h2>
+    <div class="todo-list">
+
+      <div class="todo-item blocked">
+        <div class="top-row">
+          <h3>Pick a script logo option</h3>
+          <span class="who you">You</span>
+        </div>
+        <p>Show the <a class="inline-link" href="../styles/script-logo/">comparison page</a> to the customer and get their pick: keep the current low-res image, or use the upscaled version. (A live-text recreation was tried too but ruled out.) Nothing site-wide changes until you decide.</p>
+      </div>
+
+      <div class="todo-item blocked">
+        <div class="top-row">
+          <h3>Formspree vs. Web3Forms for the contact form</h3>
+          <span class="who you">You</span>
+        </div>
+        <p>Formspree is wired in but free tier is 50 submissions/month, shared with East End Pizza if using one account. Web3Forms offers 250/month free with lighter signup (just an emailed access key) but a more basic dashboard. Decide which to use, then either create the Formspree form or get a Web3Forms access key.</p>
+      </div>
+
+      <div class="todo-item blocked">
+        <div class="top-row">
+          <h3>Grant Google Business Profile manager access</h3>
+          <span class="who you">You</span>
+        </div>
+        <p>Add <code>solidusbm@gmail.com</code> as a Manager on the real "Royal Treatment Carpet, Upholstery &amp; Tile Cleaning" Google Business Profile (Business Profile &rarr; Managers &rarr; Add manager). Needed to pull all 7 real reviews (only 3 are usable today) and get true per-review permalinks instead of the general CID link.</p>
+      </div>
+
+      <div class="todo-item blocked">
+        <div class="top-row">
+          <h3>Upload real before/after photos</h3>
+          <span class="who you">You</span>
+        </div>
+        <p>The gallery section is built but stays hidden until staff upload named pairs (<code>before1.jpg</code> / <code>after1.jpg</code>, etc.) to <code>v1/assets/img/before-after/</code>. See the <a class="inline-link" href="https://github.com/solidusbm/royal-treatment/blob/master/v1/assets/img/before-after/README.md" target="_blank" rel="noopener">photo-taking guidance</a> in that folder&rsquo;s README.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="hub-section">
+    <h2>Waiting on the above</h2>
+    <div class="todo-list">
+
+      <div class="todo-item">
+        <div class="top-row">
+          <h3>Wire in the real form endpoint</h3>
+          <span class="who claude">Claude</span>
+        </div>
+        <p>Once you've decided Formspree vs. Web3Forms and have a real endpoint/key, send it over and I'll drop it into <code>v1/index.html</code>'s <code>#estimateForm</code> and remove the placeholder-fallback message.</p>
+      </div>
+
+      <div class="todo-item">
+        <div class="top-row">
+          <h3>Apply the chosen logo option site-wide</h3>
+          <span class="who claude">Claude</span>
+        </div>
+        <p>Once you've picked A or B from the comparison page, I'll swap it into all four usages (hero, service-promise, detail-script, contact-script) in <code>v1/</code>.</p>
+      </div>
+
+      <div class="todo-item">
+        <div class="top-row">
+          <h3>Pull full review set &amp; real permalinks</h3>
+          <span class="who claude">Claude</span>
+        </div>
+        <p>Once manager access is granted, revisit the reviews section: pull all 7 reviews and link each one individually instead of the general CID link.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

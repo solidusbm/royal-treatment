@@ -6,9 +6,6 @@
 <title>Royal Treatment — Script Logo Options</title>
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="../../css/hub.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 <style>
   .compare-grid {
     display: grid;
@@ -51,15 +48,6 @@
     max-width: 620px;
   }
   .demo-context .sentence img { display: inline-block; vertical-align: -0.12em; width: min(100%, 320px); height: auto; margin-top: 4px; }
-  .demo-context .sentence .script-text {
-    display: inline-block;
-    font-family: 'Alex Brush', cursive;
-    color: #b48a00;
-    font-size: 1.9em;
-    line-height: 0.8;
-    vertical-align: -0.28em;
-    margin-left: 0.05em;
-  }
   .standalone-row {
     padding: 24px 24px 32px;
     display: flex;
@@ -68,7 +56,8 @@
     flex-wrap: wrap;
   }
   .standalone-row .swatch-sm, .standalone-row .swatch-lg {
-    background: #151515;
+    background: #fff;
+    border: 1px solid var(--tan);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,8 +65,6 @@
   }
   .standalone-row .swatch-sm img { height: 28px; width: auto; }
   .standalone-row .swatch-lg img { height: 60px; width: auto; }
-  .standalone-row .swatch-sm .script-text { font-family: 'Alex Brush', cursive; color: var(--gold); font-size: 34px; line-height: 1; }
-  .standalone-row .swatch-lg .script-text { font-family: 'Alex Brush', cursive; color: var(--gold); font-size: 70px; line-height: 1; }
   .standalone-row .swatch-label { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 6px; }
   .standalone-col { display: flex; flex-direction: column; align-items: center; }
 </style>
@@ -97,7 +84,7 @@
 <main>
   <a class="back-link" href="../">&larr; Back to styles</a>
 
-  <p class="intro">The cursive "Royal Treatment" wordmark is low-resolution at the source (2.3KB, 660&times;145px — this is the original site's own asset, not something introduced in our rebuild). Two options below to fix the artifacting: a traditional upscale of the existing image, and a full recreation as live text in a matching script font. Compare both in context and at a couple of sizes.</p>
+  <p class="intro">The cursive "Royal Treatment" wordmark is low-resolution at the source (2.3KB, 660&times;145px — this is the original site's own asset, not something introduced in our rebuild). Comparing the current image against a traditional upscale below (a live-text recreation in a web font was also tried but ruled out — the letterforms didn't match well enough).</p>
 
   <div class="compare-grid">
 
@@ -138,27 +125,6 @@
         </div>
         <div class="standalone-col">
           <div class="swatch-lg"><img src="../../v1/assets/img/royal-treatment-script-upscaled.png" alt="Royal Treatment"></div>
-          <span class="swatch-label">Large (as used in hero)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="compare-card">
-      <div class="label-row">
-        <h3>Option C &mdash; Recreated as live text</h3>
-        <span>Script web font (Alex Brush)</span>
-      </div>
-      <p class="note">Rebuilt as real text in a flowing script font instead of an image. Perfectly crisp at any size, no artifacting ever. Letterforms are a close style match but not pixel-identical to the original art.</p>
-      <div class="demo-context">
-        <p class="sentence">Your home deserves the<br><span class="script-text">Royal Treatment</span></p>
-      </div>
-      <div class="standalone-row">
-        <div class="standalone-col">
-          <div class="swatch-sm"><span class="script-text">Royal Treatment</span></div>
-          <span class="swatch-label">Small (as used in body text)</span>
-        </div>
-        <div class="standalone-col">
-          <div class="swatch-lg"><span class="script-text">Royal Treatment</span></div>
           <span class="swatch-label">Large (as used in hero)</span>
         </div>
       </div>
