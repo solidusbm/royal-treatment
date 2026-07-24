@@ -24,8 +24,10 @@ gallery.
 - `styles/` — empty comparison hub for future visual/layout variants,
   separate from `v1`'s feature iterations.
 
-This project isn't hosted anywhere live yet (no GitHub Pages / custom domain
-set up) — it's still in the demo/review stage.
+Live on GitHub Pages: hub at `https://solidusbm.github.io/royal-treatment/`,
+actual site at `https://solidusbm.github.io/royal-treatment/v1/`. No custom
+domain set up — this is a demo/review deployment, not a production URL
+meant for customers yet.
 
 ## Connecting the contact form (Formspree)
 
@@ -67,9 +69,8 @@ No variants exist yet — this is just the empty hub shell.
 
 ## Deploying
 
-Not deployed yet. When ready, this can go on GitHub Pages (push and enable
-Pages in repo settings) or Netlify (drag-and-drop at app.netlify.com/drop).
-Since `v1/` is a subfolder, not the repo root, GitHub Pages would serve the
-demo hub at the domain root and the actual site at `/v1/` unless the
-structure is flattened first (move `v1/`'s contents to the repo root) —
+Already deployed via GitHub Pages (see above). If this ever needs to become
+the real production site for a real domain, the hub currently occupies the
+repo root, so GitHub Pages custom domains would point at the hub instead of
+the site — `v1/`'s contents would need to move up to the repo root first,
 same tradeoff as the East End Pizza project.
