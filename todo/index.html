@@ -57,10 +57,15 @@
 
       <div class="todo-item blocked">
         <div class="top-row">
-          <h3>Pick a script logo option</h3>
+          <h3>Track down the real "Royal Treatment" logo source file</h3>
           <span class="who you">You</span>
         </div>
-        <p>Show the <a class="inline-link" href="../styles/script-logo/">comparison page</a> to the customer and get their pick: keep the current low-res image, or use the upscaled version. (A live-text recreation was tried too but ruled out.) Nothing site-wide changes until you decide.</p>
+        <p>The <a class="inline-link" href="../styles/script-logo/">comparison page</a> confirmed upscaling the current low-res wordmark makes basically no visible difference &mdash; it's a dead end (a live-text web-font recreation was tried too and rejected). The real fix is finding the actual source artwork. Preferred formats, best to worst:</p>
+        <p style="margin-top:10px;">
+          1. <strong>Vector file</strong> &mdash; SVG, AI, EPS, or PDF. Infinitely scalable, no quality loss ever. Check with whoever designed the van decal/wrap &mdash; sign shops almost always work from a vector source.<br>
+          2. <strong>High-res raster with transparent background</strong> &mdash; PNG, at least 2000&ndash;3000px wide, not re-saved/re-compressed from a smaller version.<br>
+          3. <strong>Last resort:</strong> a sharp, well-lit, straight-on photo of the physical van decal &mdash; could be traced into a clean vector if nothing else turns up.
+        </p>
       </div>
 
       <div class="todo-item blocked">
@@ -104,10 +109,10 @@
 
       <div class="todo-item">
         <div class="top-row">
-          <h3>Apply the chosen logo option site-wide</h3>
+          <h3>Swap in the real logo file</h3>
           <span class="who claude">Claude</span>
         </div>
-        <p>Once you've picked A or B from the comparison page, I'll swap it into all four usages (hero, service-promise, detail-script, contact-script) in <code>v1/</code>.</p>
+        <p>Once you've tracked down a proper source file, send it over and I'll drop it in and update all four usages (hero, service-promise, detail-script, contact-script) in <code>v1/</code>.</p>
       </div>
 
       <div class="todo-item">
