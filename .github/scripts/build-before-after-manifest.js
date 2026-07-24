@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const imgDir = path.join(__dirname, '..', '..', 'assets', 'img', 'before-after');
-const manifestPath = path.join(__dirname, '..', '..', 'assets', 'data', 'before-after.json');
+const imgDir = path.join(__dirname, '..', '..', 'v1', 'assets', 'img', 'before-after');
+const manifestPath = path.join(__dirname, '..', '..', 'v1', 'assets', 'data', 'before-after.json');
 const pattern = /^(before|after)(\d+)\.(jpe?g|png|webp)$/i;
 
 const files = fs.existsSync(imgDir) ? fs.readdirSync(imgDir) : [];

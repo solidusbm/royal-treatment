@@ -4,10 +4,10 @@ on:
   push:
     branches: [main, master]
     paths:
-      - "assets/img/before-after/*.jpg"
-      - "assets/img/before-after/*.jpeg"
-      - "assets/img/before-after/*.png"
-      - "assets/img/before-after/*.webp"
+      - "v1/assets/img/before-after/*.jpg"
+      - "v1/assets/img/before-after/*.jpeg"
+      - "v1/assets/img/before-after/*.png"
+      - "v1/assets/img/before-after/*.webp"
   workflow_dispatch:
 
 permissions:
@@ -26,6 +26,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/data/before-after.json
+          git add v1/assets/data/before-after.json
           git diff --staged --quiet || git commit -m "Update before/after manifest"
           git push
