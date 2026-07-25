@@ -44,6 +44,17 @@
   .cat.feature { background: #eaf1fd; color: #2f5aa3; }
   .cat.practice { background: #fdf3e3; color: #8a6a1f; }
   .cat.readability { background: #f1eaf9; color: #63389c; }
+  .todo-item.done { border-left-color: #2f6b45; opacity: 0.75; }
+  .status.fixed {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #eaf3ec;
+    color: #2f6b45;
+  }
 </style>
 </head>
 <body>
@@ -104,20 +115,20 @@
         <p>The gallery section is built but stays hidden until staff upload named pairs (<code>before1.jpg</code> / <code>after1.jpg</code>, etc.) to <code>v1/assets/img/before-after/</code>. See the <a class="inline-link" href="https://github.com/solidusbm/royal-treatment/blob/master/v1/assets/img/before-after/README.md" target="_blank" rel="noopener">photo-taking guidance</a> in that folder&rsquo;s README.</p>
       </div>
 
-      <div class="todo-item">
+      <div class="todo-item done">
         <div class="top-row">
           <h3>Big gold period after the script logo in "Services" section</h3>
-          <span class="who you">You</span>
+          <span class="status fixed">Fixed</span>
         </div>
-        <p>Right under the "Our services" heading, the line reads "Give your space the <em>[Royal Treatment script logo]</em>." with a large gold period tucked right after the logo image &mdash; carried over verbatim from the original site's design. Flagging so it can be discussed at the next meeting: keep as-is, or drop/restyle it?</p>
+        <p>Was: right under the "Our services" heading, the line read "Give your space the <em>[Royal Treatment script logo]</em>." with a large gold period tucked right after the logo image &mdash; carried over verbatim from the original site's design. <strong>Resolved:</strong> you decided to remove it. The <code>&lt;b aria-hidden="true"&gt;.&lt;/b&gt;</code> element (and its now-dead CSS rule) has been deleted from <code>v1/index.html</code> and all 20 style-variant pages.</p>
       </div>
 
-      <div class="todo-item">
+      <div class="todo-item done">
         <div class="top-row">
           <h3>"Email for an estimate" button in the hero opens a mailto link instead of the form</h3>
-          <span class="who you">You</span>
+          <span class="status fixed">Fixed</span>
         </div>
-        <p>The hero's secondary button (<code>v1/index.html</code>, next to "Call 830-328-8614") currently opens the visitor's email client via <code>mailto:</code>. It probably should instead jump down to the on-page "Request an estimate" form (<code>href="#contact"</code>), same as the "Free estimate" nav button and the other "Request an estimate" links already do. Confirm intent, then it's a one-line fix.</p>
+        <p>Was: the hero's secondary button opened the visitor's email client via <code>mailto:</code> instead of jumping to the on-page form. <strong>Resolved:</strong> now links to <code>href="#contact"</code>, same as the "Free estimate" nav button and the other "Request an estimate" links. Updated in <code>v1/index.html</code> and all 20 style-variant pages.</p>
       </div>
 
     </div>
