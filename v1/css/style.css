@@ -133,7 +133,6 @@ nav { align-items: center; gap: 34px; font-size: 14px; font-weight: 700; display
 .service-promise > span:first-child { margin-bottom: 4px; }
 .service-promise img { width: min(100%, 340px); height: auto; display: block; }
 .promise-script { align-items: flex-end; display: flex; }
-.promise-script b { color: #b48a00; margin: 0 0 10px -7px; font-size: 46px; line-height: 0.8; font-weight: 400; }
 
 /* Service grid */
 .service-grid { border-top: 1px solid var(--line); border-left: 1px solid var(--line); grid-template-columns: repeat(3, 1fr); display: grid; }
