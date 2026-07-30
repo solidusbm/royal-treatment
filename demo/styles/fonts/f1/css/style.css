@@ -238,6 +238,7 @@ nav { align-items: center; gap: 34px; font-size: 14px; font-weight: 700; display
 /* Contact form card */
 .contact-form-card { background: var(--ink); color: #fff; padding: 40px; box-shadow: 12px 12px 0 rgba(21, 21, 21, 0.15); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
 .form-group { margin-bottom: 16px; }
 .form-group label { display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #cfcfcf; margin-bottom: 8px; }
 .form-group .required { color: var(--gold); }
@@ -324,7 +325,7 @@ footer p { color: #aaa; margin: 0; font-size: 12px; }
   .about-points { grid-template-columns: 1fr; }
   .about-points span { border-bottom: 1px solid #333; padding: 16px 0; }
   .contact-actions .button, .contact-actions { width: 100%; }
-  .form-row { grid-template-columns: 1fr; }
+  .form-row, .form-row-3 { grid-template-columns: 1fr; }
   footer { grid-template-columns: 1fr; align-items: start; gap: 24px; }
 }
 
