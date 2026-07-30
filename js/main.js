@@ -19,8 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
       var status = document.getElementById('formStatus');
       var submitBtn = document.getElementById('submitBtn');
       var endpoint = form.getAttribute('action');
+      var accessKey = form.elements['access_key'] ? form.elements['access_key'].value : '';
 
-      if (!endpoint || endpoint.indexOf('YOUR_FORM_ID') !== -1) {
+      if (!endpoint || !accessKey || accessKey.indexOf('YOUR_WEB3FORMS_ACCESS_KEY') !== -1) {
         status.className = 'form-status error';
         status.textContent = 'Online requests aren’t connected yet — please call 830-328-8614 or email royaltreatmentclean@outlook.com.';
         return;
@@ -34,13 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       }).then(function (response) {
-        if (response.ok) {
-          status.className = 'form-status success';
-          status.textContent = 'Thanks! Your request has been sent — we’ll follow up by phone or email shortly.';
-          form.reset();
-        } else {
-          throw new Error('Request failed');
-        }
+        return response.json().then(function (data) {
+          if (response.ok && data.success) {
+            status.className = 'form-status success';
+            status.textContent = 'Thanks! Your request has been sent — we’ll follow up by phone or email shortly.';
+            form.reset();
+          } else {
+            throw new Error(data.message || 'Request failed');
+          }
+        });
       }).catch(function () {
         status.className = 'form-status error';
         status.textContent = 'Something went wrong sending your request. Please call 830-328-8614 or email royaltreatmentclean@outlook.com.';
