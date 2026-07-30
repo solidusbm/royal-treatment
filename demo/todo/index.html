@@ -61,7 +61,7 @@
 
 <header class="hub-header">
   <div class="brand">
-    <img src="../../assets/img/header-logo.webp" alt="Royal Treatment">
+    <img src="../../assets/img/header-logo.png" alt="Royal Treatment">
     <div class="brand-text">
       <strong>Royal Treatment</strong>
       <span>Action items</span>
@@ -77,19 +77,6 @@
   <section class="hub-section">
     <h2>Needs your decision or action</h2>
     <div class="todo-list">
-
-      <div class="todo-item blocked">
-        <div class="top-row">
-          <h3>Track down the real "Royal Treatment" logo source file</h3>
-          <span class="who you">You</span>
-        </div>
-        <p>The <a class="inline-link" href="../styles/script-logo/">comparison page</a> confirmed upscaling the current low-res wordmark makes basically no visible difference &mdash; it's a dead end (a live-text web-font recreation was tried too and rejected). The real fix is finding the actual source artwork. Preferred formats, best to worst:</p>
-        <p style="margin-top:10px;">
-          1. <strong>Vector file</strong> &mdash; SVG, AI, EPS, or PDF. Infinitely scalable, no quality loss ever. Check with whoever designed the van decal/wrap &mdash; sign shops almost always work from a vector source.<br>
-          2. <strong>High-res raster with transparent background</strong> &mdash; PNG, at least 2000&ndash;3000px wide, not re-saved/re-compressed from a smaller version.<br>
-          3. <strong>Last resort:</strong> a sharp, well-lit, straight-on photo of the physical van decal &mdash; could be traced into a clean vector if nothing else turns up.
-        </p>
-      </div>
 
       <div class="todo-item blocked">
         <div class="top-row">
@@ -147,20 +134,28 @@
         <p>Was: the estimate form had no real backend, so submissions went nowhere. <strong>Resolved:</strong> decided on Web3Forms, you got an access key from web3forms.com, and it's now wired into <code>#estimateForm</code> in <code>index.html</code>. Tested end-to-end with a real submission &mdash; success message displayed and the request went through. Live and working.</p>
       </div>
 
+      <div class="todo-item done">
+        <div class="top-row">
+          <h3>Mobile: footer too thick, checkmarks not centered, van photo cropped</h3>
+          <span class="status fixed">Fixed</span>
+        </div>
+        <p>Client feedback, all on phone screens: the footer felt oversized, the "&check; Residential care / Clear estimates / Friendly service" row was left-aligned instead of centered, and the hero van photo was getting significantly cropped (the box was nearly square while the photo is wide/landscape, cutting off ~40% of it). <strong>Resolved:</strong> footer padding/logo/gaps tightened on mobile, trust-row centered on mobile, and the hero image box now uses the photo's real aspect ratio so it displays uncropped. Also did a broader mobile pass while in there: bumped the 9px announcement-bar text up to 11px for legibility, and bumped form-field font size to 16px on mobile so iOS Safari doesn't auto-zoom when tapping into a field.</p>
+      </div>
+
+      <div class="todo-item done">
+        <div class="top-row">
+          <h3>Low-resolution script logo</h3>
+          <span class="status fixed">Fixed</span>
+        </div>
+        <p>Was: the cursive "Royal Treatment" wordmark was low-res at the source (660&times;145px), with no way to fix it short of a real source file. <strong>Resolved:</strong> you sent over a shirt-back print PDF with the real logo artwork. Rendered it at high resolution, extracted a transparent-background full lockup and a script-only crop, and swapped both in everywhere &mdash; header, footer, hero, "Give your space the&hellip;", service details, and contact section, across <code>index.html</code> and all 20 style-variant pages. See the <a class="inline-link" href="../styles/script-logo/">before/after</a>.</p>
+      </div>
+
     </div>
   </section>
 
   <section class="hub-section">
     <h2>Waiting on the above</h2>
     <div class="todo-list">
-
-      <div class="todo-item">
-        <div class="top-row">
-          <h3>Swap in the real logo file</h3>
-          <span class="who claude">Claude</span>
-        </div>
-        <p>Once you've tracked down a proper source file, send it over and I'll drop it in and update all four usages (hero, service-promise, detail-script, contact-script) at the site root.</p>
-      </div>
 
       <div class="todo-item">
         <div class="top-row">
