@@ -93,10 +93,10 @@
 
       <div class="todo-item blocked">
         <div class="top-row">
-          <h3>Formspree vs. Web3Forms for the contact form</h3>
+          <h3>Get a Web3Forms access key</h3>
           <span class="who you">You</span>
         </div>
-        <p>Formspree is wired in but free tier is 50 submissions/month, shared with East End Pizza if using one account. Web3Forms offers 250/month free with lighter signup (just an emailed access key) but a more basic dashboard. Decide which to use, then either create the Formspree form or get a Web3Forms access key.</p>
+        <p><strong>Decided:</strong> using Web3Forms (250 free submissions/month, lighter signup than Formspree). The form is already wired up to <code>https://api.web3forms.com/submit</code> in <code>index.html</code> and <code>js/main.js</code> &mdash; it just needs a real key. Go to <a class="inline-link" href="https://web3forms.com" target="_blank" rel="noopener">web3forms.com</a>, enter <code>royaltreatmentclean@outlook.com</code>, and the access key will be emailed to you. Send it over and I'll drop it into the form's hidden <code>access_key</code> field (currently <code>YOUR_WEB3FORMS_ACCESS_KEY</code>) and the form goes live.</p>
       </div>
 
       <div class="todo-item blocked">
@@ -156,10 +156,10 @@
 
       <div class="todo-item">
         <div class="top-row">
-          <h3>Wire in the real form endpoint</h3>
+          <h3>Drop in the real Web3Forms access key</h3>
           <span class="who claude">Claude</span>
         </div>
-        <p>Once you've decided Formspree vs. Web3Forms and have a real endpoint/key, send it over and I'll drop it into <code>index.html</code>'s <code>#estimateForm</code> and remove the placeholder-fallback message.</p>
+        <p>The form's already pointed at Web3Forms and handles its response format &mdash; once you send over the access key, I'll swap it into the hidden <code>access_key</code> field in <code>index.html</code> and the placeholder-fallback message goes away.</p>
       </div>
 
       <div class="todo-item">
