@@ -115,6 +115,14 @@
         <p>The gallery section is built but stays hidden until staff upload named pairs (<code>before1.jpg</code> / <code>after1.jpg</code>, etc.) to <code>assets/img/before-after/</code>. See the <a class="inline-link" href="https://github.com/solidusbm/royal-treatment/blob/master/assets/img/before-after/README.md" target="_blank" rel="noopener">photo-taking guidance</a> in that folder&rsquo;s README.</p>
       </div>
 
+      <div class="todo-item blocked">
+        <div class="top-row">
+          <h3>Turn on Cloudflare proxy (orange cloud) for royaltreatmentclean.net</h3>
+          <span class="who you">You</span>
+        </div>
+        <p>The DNS records for the domain were set to "DNS only" (grey cloud) on purpose &mdash; Cloudflare's proxy can block GitHub's automatic HTTPS certificate from being issued on a brand-new custom domain. Once GitHub shows the certificate as issued (check Settings &rarr; Pages on the repo, or just confirm <code>https://royaltreatmentclean.net</code> loads without a security warning), switch the A/CNAME records to "Proxied" (orange cloud) in Cloudflare for the CDN/caching/DDoS protection benefits.</p>
+      </div>
+
       <div class="todo-item done">
         <div class="top-row">
           <h3>Stray periods after the script logo (3 spots)</h3>
