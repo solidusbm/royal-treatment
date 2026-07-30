@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!endpoint || !accessKey || accessKey.indexOf('YOUR_WEB3FORMS_ACCESS_KEY') !== -1) {
         status.className = 'form-status error';
-        status.textContent = 'Online requests aren’t connected yet — please call 830-328-8614 or email royaltreatmentclean@outlook.com.';
+        status.textContent = 'Online requests aren’t connected yet — please call 830-328-8614 or email booking@royaltreatmentclean.net.';
         return;
       }
 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }).catch(function () {
         status.className = 'form-status error';
-        status.textContent = 'Something went wrong sending your request. Please call 830-328-8614 or email royaltreatmentclean@outlook.com.';
+        status.textContent = 'Something went wrong sending your request. Please call 830-328-8614 or email booking@royaltreatmentclean.net.';
       }).finally(function () {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Request my free estimate';
