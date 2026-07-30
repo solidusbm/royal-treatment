@@ -291,7 +291,7 @@ footer p { color: #aaa; margin: 0; font-size: 12px; }
   nav a:not(.nav-cta) { display: none; }
   .hero { grid-template-columns: 1fr; }
   .hero-copy { padding: 70px 7vw; }
-  .hero-visual { border-left: 0; min-height: 480px; }
+  .hero-visual { border-left: 0; aspect-ratio: 1568 / 1003; min-height: 0; }
   .service-grid { grid-template-columns: 1fr 1fr; }
   .detail-row { grid-template-columns: minmax(220px, 0.7fr) 1.3fr; }
   .detail-list { grid-column: 2; }
@@ -305,14 +305,14 @@ footer p { color: #aaa; margin: 0; font-size: 12px; }
 }
 
 @media (width <= 600px) {
-  .announcement { font-size: 9px; }
+  .announcement { font-size: 11px; }
   .site-header { height: 80px; padding: 0 5vw; }
   .header-logo { width: 170px; height: 72px; }
   .nav-cta { padding: 11px 13px; }
   .hero-copy { padding: 58px 6vw; }
   .hero-actions .button { width: 100%; }
-  .hero-visual { min-height: 410px; }
   .result-card { bottom: 7%; left: 6%; }
+  .trust-row { justify-content: center; text-align: center; }
   .rain-callout { flex-direction: column; align-items: flex-start; }
   .service-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 270px; }
@@ -325,5 +325,7 @@ footer p { color: #aaa; margin: 0; font-size: 12px; }
   .about-points span { border-bottom: 1px solid #333; padding: 16px 0; }
   .contact-actions .button, .contact-actions { width: 100%; }
   .form-row, .form-row-3 { grid-template-columns: 1fr; }
-  footer { grid-template-columns: 1fr; align-items: start; gap: 24px; }
+  .form-group input, .form-group select, .form-group textarea { font-size: 16px; }
+  footer { grid-template-columns: 1fr; align-items: start; gap: 16px; padding: 40px 6vw; }
+  .footer-logo { width: min(200px, 100%); }
 }
