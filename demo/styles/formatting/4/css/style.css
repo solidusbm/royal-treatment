@@ -208,13 +208,14 @@ nav { align-items: center; gap: 34px; font-size: 14px; font-weight: 700; display
 .reviews-copy h2 { letter-spacing: -0.04em; margin: 0; font-size: clamp(34px, 4vw, 58px); line-height: 1.05; }
 .reviews-copy > p:not(.eyebrow) { color: var(--muted); max-width: 650px; margin: 24px 0 30px; line-height: 1.75; }
 .reviews-copy .button + .button { margin-left: 12px; }
-.reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 26px; display: grid; }
+.reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; display: grid; }
 .reviews-card { background: var(--ink); color: #fff; border-bottom: 8px solid var(--gold); padding: 40px 34px; box-shadow: 12px 12px #e8dfc4; display: flex; flex-direction: column; }
 .google-mark { letter-spacing: 0.04em; align-items: center; gap: 13px; font-size: 14px; font-weight: 800; display: flex; }
 .google-mark b { color: #4285f4; background: #fff; border-radius: 50%; place-items: center; width: 36px; height: 36px; font-family: Arial, sans-serif; font-size: 20px; display: grid; }
 .review-stars { color: var(--gold); letter-spacing: 0.16em; margin: 22px 0 18px; font-size: 22px; }
 .reviews-card blockquote { letter-spacing: -0.02em; margin: 0; font-size: 19px; font-weight: 700; line-height: 1.3; }
 .reviews-card > p { color: #c7c7c7; margin: 20px 0 0; font-size: 13px; line-height: 1.6; }
+.review-photo { width: 100%; height: auto; border-radius: 6px; margin-top: 18px; display: block; }
 
 /* Process */
 .process { background: #fafafa; }
