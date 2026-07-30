@@ -93,14 +93,6 @@
 
       <div class="todo-item blocked">
         <div class="top-row">
-          <h3>Get a Web3Forms access key</h3>
-          <span class="who you">You</span>
-        </div>
-        <p><strong>Decided:</strong> using Web3Forms (250 free submissions/month, lighter signup than Formspree). The form is already wired up to <code>https://api.web3forms.com/submit</code> in <code>index.html</code> and <code>js/main.js</code> &mdash; it just needs a real key. Go to <a class="inline-link" href="https://web3forms.com" target="_blank" rel="noopener">web3forms.com</a>, enter <code>royaltreatmentclean@outlook.com</code>, and the access key will be emailed to you. Send it over and I'll drop it into the form's hidden <code>access_key</code> field (currently <code>YOUR_WEB3FORMS_ACCESS_KEY</code>) and the form goes live.</p>
-      </div>
-
-      <div class="todo-item blocked">
-        <div class="top-row">
           <h3>Grant Google Business Profile manager access</h3>
           <span class="who you">You</span>
         </div>
@@ -147,20 +139,20 @@
         <p>Was: the hero's secondary button opened the visitor's email client via <code>mailto:</code> instead of jumping to the on-page form. <strong>Resolved:</strong> now links to <code>href="#contact"</code>, same as the "Free estimate" nav button and the other "Request an estimate" links. Also relabeled the button text from "Email for an estimate" to "Free estimate" so it matches what it now does. Updated in <code>index.html</code> and all 20 style-variant pages.</p>
       </div>
 
+      <div class="todo-item done">
+        <div class="top-row">
+          <h3>Contact form isn't connected to anything</h3>
+          <span class="status fixed">Fixed</span>
+        </div>
+        <p>Was: the estimate form had no real backend, so submissions went nowhere. <strong>Resolved:</strong> decided on Web3Forms, you got an access key from web3forms.com, and it's now wired into <code>#estimateForm</code> in <code>index.html</code>. Tested end-to-end with a real submission &mdash; success message displayed and the request went through. Live and working.</p>
+      </div>
+
     </div>
   </section>
 
   <section class="hub-section">
     <h2>Waiting on the above</h2>
     <div class="todo-list">
-
-      <div class="todo-item">
-        <div class="top-row">
-          <h3>Drop in the real Web3Forms access key</h3>
-          <span class="who claude">Claude</span>
-        </div>
-        <p>The form's already pointed at Web3Forms and handles its response format &mdash; once you send over the access key, I'll swap it into the hidden <code>access_key</code> field in <code>index.html</code> and the placeholder-fallback message goes away.</p>
-      </div>
 
       <div class="todo-item">
         <div class="top-row">
