@@ -26,6 +26,7 @@ contact:                                  # blocking class; live site wins on co
   address: {value: null, status: provided, note: "Service-area business with no public address; pieces drop the line (decided at review 2026-09-19)"}
   hours:   {value: null, status: provided, note: "No published hours; pieces drop the line (decided at review 2026-09-19)"}
   website: {value: "royaltreatmentclean.net", source: "CNAME:1; live 200 OK", status: extracted}
+  service_area: {value: "Serving Bandera, TX and the Texas Hill Country", source: "index.html:7 meta description (\"serving Bandera, TX and the Texas Hill Country\")", status: extracted}   # stands in for the address
   socials: {status: missing}                # no social links in nav or footer
   google_listing: {value: "https://www.google.com/maps?cid=1706301989705631566", source: "index.html:204 reviews button", status: extracted}
 
@@ -88,10 +89,10 @@ copy:                                     # verbatim, repo wins on conflict (non
     - {value: "Carpet Cleaning", detail: "Deep extraction that lifts soil, spots, odors, and the muddy mess Texas weather tracks indoors.", source: "index.html:78-79", status: extracted}
     - {value: "Upholstery Cleaning", detail: "Careful cleaning for sofas, chairs, sectionals, and other fabric furnishings—freshened without harsh residue.", source: "index.html:84-85", status: extracted}
     - {value: "Tile & Grout", detail: "Professional pressure and extraction to break through buildup and brighten grout lines.", source: "index.html:90-91", status: extracted}
-  service_includes:
-    carpet:     {value: ["Pre-inspection", "Pre-vac", "Pre-treat", "Professional hot water extraction", "Free carpet protector", "Grooming and post-inspection"], source: "index.html:115-122", status: extracted}
-    upholstery: {value: ["Pre-inspection", "Pre-vacuum", "Pre-treat", "Professional hot water extraction", "Free protector", "Grooming and post-inspection"], source: "index.html:137-144", status: extracted}
-    tile:       {value: ["Pre-inspection", "Pre-sweep", "Professional cleaning solution", "Focused agitation of grout lines", "High-pressure rinse and extraction", "Sealant options available"], source: "index.html:160-167", status: extracted}
+  service_includes:                       # "Service may include" lists; name is the detail-row eyebrow
+    - {name: "Carpet cleaning",      items: ["Pre-inspection", "Pre-vac", "Pre-treat", "Professional hot water extraction", "Free carpet protector", "Grooming and post-inspection"], source: "index.html:107,115-122", status: extracted}
+    - {name: "Upholstery cleaning",  items: ["Pre-inspection", "Pre-vacuum", "Pre-treat", "Professional hot water extraction", "Free protector", "Grooming and post-inspection"], source: "index.html:129,137-144", status: extracted}
+    - {name: "Tile & grout cleaning", items: ["Pre-inspection", "Pre-sweep", "Professional cleaning solution", "Focused agitation of grout lines", "High-pressure rinse and extraction", "Sealant options available"], source: "index.html:151,160-167", status: extracted}
   offers: []                              # blocking class; no promotion on the site, confirmed at review 2026-09-19. The two-up flyer uses the tagline. "Free estimates" stays under credentials.
   prices: []                              # blocking class; no price on the site, confirmed at review 2026-09-19 ("Straightforward pricing" is a claim, not a figure)
   about:       {value: "We treat your home with the care we'd want for our own.", source: "index.html:189", status: extracted}
@@ -113,7 +114,7 @@ copy:                                     # verbatim, repo wins on conflict (non
   closers:
     - {value: "Fresh. Clean. Comfortable. That's the Royal Treatment.", source: "index.html:45-46 result card", status: extracted}
     - {value: "Professional care fit for your home.", source: "index.html:335 footer", status: extracted}
-    - {value: "Don't let mud stay for good. Rainy days happen. Ground-in dirt and muddy traffic don't have to linger.", source: "index.html:52-53 rain callout", status: extracted}
+    - {headline: "Don’t let mud stay for good.", detail: "Rainy days happen. Ground-in dirt and muddy traffic don’t have to linger.", source: "index.html:52-53 rain callout", status: extracted}
   cta:         {value: "Request my free estimate", source: "index.html:403 submit button", status: extracted}
   headings:                               # section headings and eyebrows the pieces reuse as panel labels
     services:  {value: "Professional care for the surfaces you live on.", eyebrow: "Our services", source: "index.html:65-66", status: extracted}
@@ -121,7 +122,7 @@ copy:                                     # verbatim, repo wins on conflict (non
     process:   {value: "A cleaner home in three easy steps.", eyebrow: "Simple from start to finish", source: "index.html:233-234", status: extracted}
     contact:   {value: "Let’s give your home the Royal Treatment", eyebrow: "Ready for a fresh start?", source: "index.html:259-260 (last two words are the script wordmark image)", status: extracted}
     reviews:   {eyebrow: "Google reviews", source: "index.html:201", status: extracted}
-  service_area_line: {value: "Serving Bandera, TX and the Texas Hill Country", source: "index.html:7 meta description (\"serving Bandera, TX and the Texas Hill Country\")", status: extracted}
+    includes:  {value: "What’s included in the Royal Treatment", eyebrow: "Explore our services", source: "index.html:99-100 (last two words are the script wordmark image)", status: extracted}
 
 photos:                                   # print_ok is for a full-width Letter slot (needs 2550 px); max_in is the width at 300 dpi
   - {path: "assets/img/van-hero.webp",                          px: [1568, 1003], max_in: 5.2, print_ok: false, status: extracted}   # the service van; fine up to a 5 in slot
