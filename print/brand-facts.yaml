@@ -1,0 +1,134 @@
+# Brand facts for Royal Treatment, written by the printables skill 2026-09-19.
+# Correct anything here by hand; re-runs fill `missing` fields and never overwrite your edits.
+# Status: extracted (verbatim from a source) | inferred (skill assigned) | missing | provided (you) | conflict.
+# Sources are file:line in the repo. The live site (https://royaltreatmentclean.net/) was fetched
+# 2026-09-19 and is byte-identical to the repo's index.html, so no conflicts exist.
+# The repo README.md is stale (describes a v1/ folder and no custom domain); the checked-in site
+# is at the repo root with a CNAME, and that is what was read.
+
+reviewed: 2026-09-19                      # review gate passed: no public address or hours, no offer, no prices (user's decisions)
+
+sources:
+  repo: ~/projects/royal-treatment
+  site: https://royaltreatmentclean.net/
+  fetched: [https://royaltreatmentclean.net/]   # single-page site; every nav link is an anchor on the home page
+
+business:
+  name:        {value: "Royal Treatment", source: "index.html:6 <title>; index.html:336 footer", status: extracted}
+  descriptor:  {value: "Carpet, Upholstery, & Tile Cleaning", source: "index.html:18 header logo alt; logo artwork", status: extracted}
+  legal_name:  {value: null, status: missing}
+  licence:     {value: null, status: missing}   # no licence or registration number anywhere on the site
+  service_area: {value: "Bandera, TX and the Texas Hill Country", source: "index.html:7 meta description", status: extracted}
+
+contact:                                  # blocking class; live site wins on conflict (none found)
+  phone:   {value: "830-328-8614", href: "tel:18303288614", source: "index.html:14 a[href^=tel]; live site same", status: extracted}
+  email:   {value: "booking@royaltreatmentclean.net", source: "index.html:264 a[href^=mailto]; live site same", status: extracted}
+  address: {value: null, status: provided, note: "Service-area business with no public address; pieces drop the line (decided at review 2026-09-19)"}
+  hours:   {value: null, status: provided, note: "No published hours; pieces drop the line (decided at review 2026-09-19)"}
+  website: {value: "royaltreatmentclean.net", source: "CNAME:1; live 200 OK", status: extracted}
+  socials: {status: missing}                # no social links in nav or footer
+  google_listing: {value: "https://www.google.com/maps?cid=1706301989705631566", source: "index.html:204 reviews button", status: extracted}
+
+urls:
+  primary: {value: "https://royaltreatmentclean.net/", source: "CNAME:1", status: extracted}   # default QR target
+  reviews: {value: "https://www.google.com/maps?cid=1706301989705631566", source: "index.html:204", status: extracted}   # review-ask QR target
+
+colors:
+  palette:                                # verbatim, named as css/style.css names them
+    gold:   {value: "#f4c430", source: "css/style.css:2", status: extracted}
+    ink:    {value: "#151515", source: "css/style.css:3", status: extracted}
+    cream:  {value: "#fbf8f0", source: "css/style.css:4", status: extracted}
+    muted:  {value: "#686868", source: "css/style.css:5", status: extracted}
+    line:   {value: "#dedbd2", source: "css/style.css:6", status: extracted}
+    # unnamed literals the stylesheet uses for gold-hue text; named here by the rule they appear on
+    eyebrow-gold:  {value: "#9b7900", source: "css/style.css:57 .eyebrow", status: extracted}
+    step-gold:     {value: "#b08700", source: "css/style.css:223 .steps b", status: extracted}
+    eyebrow-dark:  {value: "#544000", source: "css/style.css:232 .contact .eyebrow", status: extracted}
+  roles:                                  # the five names pieces consume; contrast is against paper (cream)
+    paper:      {palette: cream,        status: inferred}   # body is #fff but cream is the named light surface (hero, reviews)
+    ink:        {palette: ink,          status: inferred, contrast: 17.21}
+    accent:     {palette: gold,         status: inferred, contrast: 1.55}   # graphics and display type only
+    accent-ink: {palette: eyebrow-dark, status: inferred, contrast: 9.38}   # darkest gold-hue entry passing 4.5:1; eyebrow-gold fails at 3.86
+    muted:      {palette: muted,        status: inferred, contrast: 5.25}
+  # reverse face (type on ink): paper/ink 17.21, accent/ink 11.12, muted/ink 3.28 (templates mix their own reverse muted)
+
+fonts:
+  - family: "Arial"
+    role: display                         # headings set no font-family of their own; they inherit body
+    kind: system
+    source: "css/style.css:17 body font-family"
+    fallback: "Helvetica, sans-serif"
+    status: extracted
+  - family: "Arial"
+    role: body
+    kind: system
+    source: "css/style.css:17 body font-family"
+    fallback: "Helvetica, sans-serif"
+    status: extracted
+  # The script "Royal Treatment" wordmark is artwork (a PNG), not a web font. demo/styles/fonts/ holds
+  # font experiments that are not the approved site and were not read.
+
+logo:                                     # blocking class
+  primary:     {value: "assets/img/header-logo.png", px: [1600, 508], source: "index.html:18 header; index.html:334 footer", status: extracted}
+               # full lockup: script wordmark + "CARPET, UPHOLSTERY, & TILE CLEANING" + phone 830-328-8614, gold on transparent (RGBA)
+  wordmark:    {value: "assets/img/royal-treatment-script.png", px: [1600, 316], source: "index.html:30 h1", status: extracted}
+               # script "Royal Treatment" only, gold on transparent (RGBA); the site blackens it with filter: brightness(0)
+  mark:        {value: null, status: missing}   # no square or icon-only version exists
+  mono:        {value: "assets/img/royal-treatment-logo.png", px: [798, 328], source: "index.html:184 about-mark; index.html:8 favicon", status: extracted}
+               # black lockup on opaque white (RGB); the site uses mix-blend-mode: multiply to sit it on gold
+  recolorable: true                       # primary and wordmark are single-colour PNGs with alpha, so mask-image recolors them to any role
+  note: "The primary lockup carries the phone number inside the artwork; pieces must not print it a second time right beside the logo."
+
+copy:                                     # verbatim, repo wins on conflict (none)
+  tagline:     {value: "Where Clean Homes Become Castles", source: "index.html:14 announcement; index.html:185 about-mark", status: extracted}
+  eyebrow:     {value: "Local care. Royal results.", source: "index.html:29", status: extracted}
+  headline:    {value: "Your home deserves the Royal Treatment", source: "index.html:30 h1 (last two words are the script wordmark image)", status: extracted}
+  lede:        {value: "Professional carpet, upholstery, and tile cleaning that leaves your home looking refreshed and feeling comfortable again.", source: "index.html:31", status: extracted}
+  services:
+    - {value: "Carpet Cleaning", detail: "Deep extraction that lifts soil, spots, odors, and the muddy mess Texas weather tracks indoors.", source: "index.html:78-79", status: extracted}
+    - {value: "Upholstery Cleaning", detail: "Careful cleaning for sofas, chairs, sectionals, and other fabric furnishings—freshened without harsh residue.", source: "index.html:84-85", status: extracted}
+    - {value: "Tile & Grout", detail: "Professional pressure and extraction to break through buildup and brighten grout lines.", source: "index.html:90-91", status: extracted}
+  service_includes:
+    carpet:     {value: ["Pre-inspection", "Pre-vac", "Pre-treat", "Professional hot water extraction", "Free carpet protector", "Grooming and post-inspection"], source: "index.html:115-122", status: extracted}
+    upholstery: {value: ["Pre-inspection", "Pre-vacuum", "Pre-treat", "Professional hot water extraction", "Free protector", "Grooming and post-inspection"], source: "index.html:137-144", status: extracted}
+    tile:       {value: ["Pre-inspection", "Pre-sweep", "Professional cleaning solution", "Focused agitation of grout lines", "High-pressure rinse and extraction", "Sealant options available"], source: "index.html:160-167", status: extracted}
+  offers: []                              # blocking class; no promotion on the site, confirmed at review 2026-09-19. The two-up flyer uses the tagline. "Free estimates" stays under credentials.
+  prices: []                              # blocking class; no price on the site, confirmed at review 2026-09-19 ("Straightforward pricing" is a claim, not a figure)
+  about:       {value: "We treat your home with the care we'd want for our own.", source: "index.html:189", status: extracted}
+  about_body:  {value: "Good cleaning is more than equipment. It's showing up, listening to what matters, working carefully around your home, and leaving you with results you can feel good about.", source: "index.html:190", status: extracted}
+  about_points: {value: ["Personal service", "Detail-focused care", "Straightforward pricing"], source: "index.html:192-194", status: extracted}
+  reviews:
+    - {value: "Wow!!! I thought I was gonna have to replace all the carpet in my home but Royal Treatment made it new again! Whew! Definitely will use again. Quick, efficient and affordable!", author: "Brandi Robinson", stars: 5, platform: Google, source: "index.html:211-213 (trailing 'Here's some before and afters below!' refers to the site photo and is dropped)", status: extracted}
+    - {value: "I highly recommend Royal Treatment! I hired them for a move out cleaning of my large carpeted living room. They were also able to do a repair near a high traffic area. Everything looks like new!", author: "Tara Green", stars: 5, platform: Google, source: "index.html:218-219", status: extracted}
+    - {value: "Very professional, quality work, highly recommend! They cleaned my couch for me on short notice for an event, I will be calling them back to clean my tile.", author: "Janet Tyra", stars: 5, platform: Google, source: "index.html:224-225", status: extracted}
+  credentials:
+    - {value: "Free estimates", source: "index.html:7 meta description; index.html:34 'Free estimate' button", status: extracted}
+    - {value: "Residential care", source: "index.html:37 trust row", status: extracted}
+    - {value: "Clear estimates", source: "index.html:38 trust row", status: extracted}
+    - {value: "Friendly service", source: "index.html:39 trust row", status: extracted}
+  process:
+    - {value: "Request an estimate", detail: "Fill out the form below or call/email with the rooms and surfaces you need cleaned.", source: "index.html:240-241", status: extracted}
+    - {value: "Choose a time", detail: "We'll coordinate a convenient appointment and confirm the details.", source: "index.html:245-246", status: extracted}
+    - {value: "Enjoy the royal treatment", detail: "We arrive ready to restore a cleaner, fresher feel to your space.", source: "index.html:250-251", status: extracted}
+  closers:
+    - {value: "Fresh. Clean. Comfortable. That's the Royal Treatment.", source: "index.html:45-46 result card", status: extracted}
+    - {value: "Professional care fit for your home.", source: "index.html:335 footer", status: extracted}
+    - {value: "Don't let mud stay for good. Rainy days happen. Ground-in dirt and muddy traffic don't have to linger.", source: "index.html:52-53 rain callout", status: extracted}
+  cta:         {value: "Request my free estimate", source: "index.html:403 submit button", status: extracted}
+  headings:                               # section headings and eyebrows the pieces reuse as panel labels
+    services:  {value: "Professional care for the surfaces you live on.", eyebrow: "Our services", source: "index.html:65-66", status: extracted}
+    about:     {eyebrow: "Why Royal Treatment", source: "index.html:188", status: extracted}
+    process:   {value: "A cleaner home in three easy steps.", eyebrow: "Simple from start to finish", source: "index.html:233-234", status: extracted}
+    contact:   {eyebrow: "Ready for a fresh start?", source: "index.html:259", status: extracted}
+    reviews:   {eyebrow: "Google reviews", source: "index.html:201", status: extracted}
+  service_area_line: {value: "Serving Bandera, TX and the Texas Hill Country", source: "index.html:7 meta description (\"serving Bandera, TX and the Texas Hill Country\")", status: extracted}
+
+photos:                                   # print_ok is for a full-width Letter slot (needs 2550 px); max_in is the width at 300 dpi
+  - {path: "assets/img/van-hero.webp",                          px: [1568, 1003], max_in: 5.2, print_ok: false, status: extracted}   # the service van; fine up to a 5 in slot
+  - {path: "assets/img/services/carpet-cleaning-detail.webp",   px: [1200, 900],  max_in: 4.0, print_ok: false, status: extracted}
+  - {path: "assets/img/services/upholstery-cleaning-detail.webp", px: [1200, 900], max_in: 4.0, print_ok: false, status: extracted}
+  - {path: "assets/img/services/tile-grout-detail.webp",        px: [1200, 900],  max_in: 4.0, print_ok: false, status: extracted}
+  - {path: "assets/img/services/carpet-cleaning-card.webp",     px: [960, 540],   max_in: 3.2, print_ok: false, status: extracted}
+  - {path: "assets/img/services/upholstery-cleaning-card.webp", px: [960, 540],   max_in: 3.2, print_ok: false, status: extracted}
+  - {path: "assets/img/services/tile-grout-card.webp",          px: [960, 540],   max_in: 3.2, print_ok: false, status: extracted}
+  - {path: "assets/img/reviews-brandi-before-after.jpg",        px: [1200, 900],  max_in: 4.0, print_ok: false, status: extracted}   # customer's before/after collage

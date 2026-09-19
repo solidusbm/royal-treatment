@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="printables-piece" content="business-card">
+<title>Business card — Royal Treatment</title>
+<style>
+/* Printables template: business card (prefix bc-). 3.5 × 2 in, two pages, one face per
+   page, 0.2 in safe margin. Seed: sastx-site/admin/brand/business-card.html.
+Brand values are hardcoded below on purpose: a print artifact must never depend on
+   the target site's stylesheet (generic class names leaked wagonwheel's site styles
+   into its brochure). Every rule in this file uses the piece prefix; the pr- rules are
+   the shared screen chrome and print hygiene. Geometry (trim size, pages, safe margin,
+   hint wording) is references/geometry.md; the numbers here restate it, the reasoning
+   does not. Filled from brand-facts.yaml (reviewed 2026-09-19); a missing non-blocking fact
+   prints as a dashed placeholder carrying data-missing. */
+@page { size: 3.5in 2in; margin: 0; }
+:root {
+  --brand-paper: #fbf8f0;
+  --brand-ink: #151515;
+  --brand-accent: #f4c430;
+  --brand-accent-ink: #544000;
+  --brand-muted: #686868;
+  --font-display: Arial, Helvetica, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+/* A face carries the five roles; a reverse face swaps paper and ink and uses raw accent
+   for its small accent text. body.bw is the black-and-white switch: a mono role set,
+   never a grayscale filter, so small accent text keeps its contrast when photocopied. */
+.bc-face { --paper: var(--brand-paper); --ink: var(--brand-ink); --accent: var(--brand-accent);
+            --accent-ink: var(--brand-accent-ink); --muted: var(--brand-muted);
+            background: var(--paper); color: var(--ink); }
+.bc-face--reverse { --paper: var(--brand-ink); --ink: var(--brand-paper); --accent-ink: var(--brand-accent);
+                     --muted: color-mix(in srgb, var(--brand-paper) 65%, var(--brand-ink)); }
+body.bw .bc-face { --paper: #fff; --ink: #000; --accent: #000; --accent-ink: #000; --muted: #444; }
+body.bw .bc-face--reverse { --paper: #000; --ink: #fff; --accent: #fff; --accent-ink: #fff; --muted: #ccc; }
+body.bw .bc-photo img { filter: grayscale(1) contrast(1.08); }
+/* Logo: the script wordmark (royal-treatment-script.png, gold on transparent) is masked by its alpha
+   so it follows the face and the bw switch. On a reverse face it takes the accent, as on the site header. */
+.bc-logo { display: block; background-color: var(--ink);
+            -webkit-mask: url("../assets/img/royal-treatment-script.png") no-repeat left center / contain;
+            mask: url("../assets/img/royal-treatment-script.png") no-repeat left center / contain; }
+.bc-face--reverse .bc-logo { background-color: var(--accent); }
+/* QR: the SVG from scripts/qr.mjs is inlined verbatim (black on white on disk, so
+   qr.mjs verify reads the shipped bytes); these rules recolor it to the face. */
+.bc-qr svg { display: block; width: 100%; height: 100%; }
+.bc-qr svg path[fill] { fill: var(--paper); }
+.bc-qr svg path[stroke] { stroke: var(--ink); }
+/* Shared screen chrome and print hygiene (pr- prefix). */
+*, *::before, *::after { box-sizing: border-box; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+body { margin: 0; background: #6E6E68; font-family: var(--font-body); }
+body.bw { background: #ddd; }
+.pr-wrap { padding: 24px; }
+.pr-chrome h1 { color: #fff; font: 700 14px system-ui, sans-serif; margin: 0 0 6px; }
+.pr-chrome .hint { color: #ddd; font: 12px/1.5 system-ui, sans-serif; margin: 0 0 4px; max-width: 72ch; }
+.pr-chrome .hint b { color: #fff; }
+.pr-buttons { margin: 10px 0 20px; display: flex; gap: 8px; }
+.pr-buttons button { font: 600 12px system-ui, sans-serif; padding: 6px 12px; border: 1px solid #fff;
+                     border-radius: 3px; background: #fff; color: #222; cursor: pointer; }
+.pr-buttons button[data-print="bw"] { background: transparent; color: #fff; }
+.pr-label { color: #ccc; font: 700 11px system-ui, sans-serif; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 4px; }
+.ph { outline: 1.5px dashed var(--accent); outline-offset: 1px; color: var(--accent); padding: 0 .15em; font-style: italic; }
+[data-invented] { background: rgba(255, 230, 0, .35); outline: 1px dotted #b8860b; }
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .pr-wrap { padding: 0; }
+  [data-invented] { background: none; outline: none; }
+}
+
+.bc-sheet { width: 3.5in; height: 2in; padding: 0.2in 0.22in; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; margin: 0 0 16px;
+            box-shadow: 0 2px 14px rgba(0,0,0,.4); break-inside: avoid; }
+.bc-sheet--front { break-after: page; }
+.bc-logo { width: 1.5in; height: 0.42in; -webkit-mask-position: left top; mask-position: left top; }
+.bc-name { margin: 0.1in 0 0; font: 700 10.5pt/1.15 var(--font-display); letter-spacing: -0.01em; }
+.bc-area { margin: 0 0 0.06in; font: 500 7pt/1.3 var(--font-body); color: var(--muted); }
+.bc-tagline { margin: 2pt 0 0; font: 500 7.5pt/1.3 var(--font-body); color: var(--accent-ink); }
+.bc-contact { margin-top: auto; padding-top: 0.08in; border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+              display: flex; justify-content: space-between; align-items: flex-end; font: 7pt/1.5 var(--font-body); }
+.bc-contact a { color: inherit; text-decoration: none; }
+.bc-site { color: var(--accent-ink); font-weight: 700; letter-spacing: 0.02em; }
+.bc-eyebrow { margin: 0; font: 700 7pt/1.2 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); }
+.bc-list { list-style: none; margin: 0.1in 0 0; padding: 0; flex: 1; display: flex; flex-direction: column; gap: 0.05in; }
+.bc-list li { font: 500 8.5pt/1.2 var(--font-body); padding-left: 0.14in; position: relative; }
+.bc-list li::before { content: ""; position: absolute; left: 0; top: 0.36em; width: 5pt; height: 5pt; background: var(--accent); }
+.bc-back-foot { display: flex; justify-content: space-between; align-items: flex-end; }
+.bc-qr { width: 0.5in; height: 0.5in; }
+.bc-back-site { margin: 0; font: 700 7pt/1.2 var(--font-body); color: var(--accent-ink); letter-spacing: 0.02em; }
+
+@media print { .bc-sheet { box-shadow: none; margin: 0; } }
+</style>
+</head>
+<body>
+<div class="pr-wrap">
+  <header class="no-print pr-chrome">
+    <h1>Business card — Royal Treatment</h1>
+    <p class="hint">3.5 × 2 in, 2 pages, trim size, no bleed. Ctrl/Cmd+P, set <b>Destination</b> to Save as PDF and leave <b>Margins</b> at Default; Chrome then hides the Paper size picker and the PDF comes out 3.5 × 2 in. A visible Paper size reading Letter means the Destination is a printer or the size rule did not take. One face per page.</p>
+    <p class="hint">Safari ignores the page size: set Paper Size to 3.5 × 2 in by hand.</p>
+    <p class="pr-buttons"><button type="button" data-print>Save as PDF</button><button type="button" data-print="bw">Save as PDF (black &amp; white)</button></p>
+  </header>
+
+  <p class="no-print pr-label">Front</p>
+  <section class="bc-sheet bc-sheet--front bc-face bc-face--reverse" data-sheet>
+    <div class="bc-logo" role="img" aria-label="Royal Treatment"></div>
+    <p class="bc-name">Carpet, Upholstery, &amp; Tile Cleaning</p>
+    <p class="bc-tagline">Where Clean Homes Become Castles</p>
+    <div class="bc-contact">
+      <div>
+        <div><a href="tel:18303288614">830-328-8614</a></div>
+        <div><a href="mailto:booking@royaltreatmentclean.net">booking@royaltreatmentclean.net</a></div>
+      </div>
+      <div class="bc-site">royaltreatmentclean.net</div>
+    </div>
+  </section>
+
+  <p class="no-print pr-label">Back</p>
+  <section class="bc-sheet bc-face" data-sheet>
+    <p class="bc-eyebrow">What we do</p>
+    <ul class="bc-list">
+      <li>Carpet Cleaning</li>
+      <li>Upholstery Cleaning</li>
+      <li>Tile &amp; Grout</li>
+    </ul>
+    <p class="bc-area">Serving Bandera, TX and the Texas Hill Country</p>
+    <div class="bc-back-foot">
+      <div class="bc-qr" data-qr="https://royaltreatmentclean.net/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h37v37H0z"/><path stroke="#000000" d="M4 4.5h7m2 0h1m2 0h2m2 0h1m1 0h2m2 0h7M4 5.5h1m5 0h1m1 0h2m1 0h2m1 0h3m2 0h1m2 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m2 0h1m2 0h3m1 0h1m5 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m2 0h2m1 0h4m2 0h3m1 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m1 0h5m1 0h1m2 0h3m2 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m2 0h1m1 0h3m3 0h3m2 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M13 11.5h2m2 0h2m1 0h2m2 0h1M4 12.5h1m1 0h1m1 0h1m1 0h1m2 0h1m4 0h2m1 0h1m1 0h2m3 0h1m2 0h1M7 13.5h1m3 0h1m4 0h1m1 0h2m1 0h1m2 0h3m2 0h1m2 0h1M5 14.5h1m3 0h4m1 0h2m1 0h1m7 0h1m1 0h2m1 0h3M4 15.5h1m1 0h2m1 0h1m1 0h1m4 0h1m2 0h1m1 0h5m1 0h1m3 0h1M5 16.5h3m2 0h1m1 0h4m4 0h2m2 0h3m2 0h1m1 0h2M4 17.5h2m1 0h1m4 0h1m1 0h4m1 0h3m2 0h1m1 0h1m2 0h1m2 0h1M6 18.5h1m1 0h4m2 0h1m3 0h3m1 0h1m2 0h5m1 0h2M4 19.5h2m1 0h3m2 0h1m3 0h3m1 0h6m1 0h3m1 0h1M4 20.5h1m4 0h6m3 0h4m1 0h5m1 0h1m1 0h2M5 21.5h2m1 0h2m1 0h1m2 0h2m2 0h2m4 0h1m1 0h1m2 0h2m1 0h1M4 22.5h1m1 0h6m1 0h5m3 0h1m2 0h1m1 0h2m3 0h2M5 23.5h3m1 0h1m2 0h5m3 0h2m1 0h4m1 0h2m1 0h1M4 24.5h1m1 0h2m1 0h2m2 0h4m2 0h4m1 0h5M12 25.5h1m2 0h1m1 0h1m6 0h1m3 0h1m1 0h3M4 26.5h7m2 0h2m3 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h2M4 27.5h1m5 0h1m3 0h1m2 0h5m2 0h1m3 0h2m1 0h1M4 28.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m2 0h1m2 0h5m3 0h1M4 29.5h1m1 0h3m1 0h1m2 0h1m1 0h4m1 0h1m6 0h2m1 0h3M4 30.5h1m1 0h3m1 0h1m1 0h1m4 0h1m3 0h1m2 0h1m2 0h3m2 0h1M4 31.5h1m5 0h1m2 0h3m1 0h5m1 0h2m2 0h2m2 0h1M4 32.5h7m1 0h1m2 0h1m2 0h1m1 0h2m1 0h4m1 0h2m1 0h2"/></svg></div>
+      <p class="bc-back-site">royaltreatmentclean.net</p>
+    </div>
+  </section>
+</div>
+<script>
+(function () {
+  var hint = document.querySelector(".pr-chrome .hint");
+  function line(t) { var p = document.createElement("p"); p.className = "hint"; p.textContent = t; hint.parentNode.insertBefore(p, hint.nextSibling); }
+  document.querySelectorAll("[data-print]").forEach(function (b) {
+    b.addEventListener("click", function () { if (b.dataset.print === "bw") document.body.classList.add("bw"); window.print(); });
+  });
+  window.addEventListener("afterprint", function () { document.body.classList.remove("bw"); });
+  var inv = document.querySelectorAll("[data-invented]").length;
+  if (inv) line(inv + " invented line" + (inv > 1 ? "s" : "") + ", see README.md.");
+  var miss = document.querySelectorAll("[data-missing]").length;
+  if (miss) line(miss + " missing fact" + (miss > 1 ? "s" : "") + " printed as dashed placeholders.");
+  /* Web font families from brand-facts.yaml (google or self-hosted), e.g. "Rye", "Zilla Slab".
+     document.fonts.check is false only for a declared face that did not load. */
+  var fams = [];
+  if (document.fonts) document.fonts.ready.then(function () {
+    fams.forEach(function (f) { if (!document.fonts.check('12px "' + f + '"')) line('Font "' + f + '" did not load; its fallback stack is printing.'); });
+  });
+})();
+</script>
+</body>
+</html>
