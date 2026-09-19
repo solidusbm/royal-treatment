@@ -9,11 +9,11 @@ artwork and photos in `../assets/img/` by relative path, so keep this folder ins
 
 ## Pieces
 
-- `business-card.html`: 3.5 × 2 in, 2 pages. Destination Save as PDF, Margins at Default; the Paper size picker disappears and the PDF is 3.5 × 2 in. One face per page. Front is dark with the gold wordmark; back lists the three services with the QR.
+- `business-card.html`: 3.5 × 2 in, 2 pages. Destination Save as PDF, Margins at Default; the Paper size picker disappears and the PDF is 3.5 × 2 in. One face per page. Dark front with the gold wordmark, descriptor, tagline, service area and contact; cream back with the three services, the trust row and the QR.
 - `letter-flyer.html`: 8.5 × 11 in, 1 page. Destination Save as PDF, Margins at Default. Dark header band, tagline, the three services as photo columns, Janet Tyra's Google review on a dark block, the trust row, contact and QR (filled out 2026-09-19 after the first version read bare).
-- `half-sheet-two-up.html`: 8.5 × 11 in, 1 page. Destination Save as PDF, Margins at Default. Cut along the dashed line for two 8.5 × 5.5 in flyers. Van photo, "Free estimates" badge, tagline, services, QR.
+- `half-sheet-two-up.html`: 8.5 × 11 in, 1 page. Destination Save as PDF, Margins at Default. Cut along the dashed line for two 8.5 × 5.5 in flyers. Van photo, "Free estimates" badge, tagline, services line, Janet Tyra's Google review, trust row, service area, QR, phone and email.
 - `tri-fold.html`: 11 × 8.5 in, 2 pages. Destination Save as PDF, Margins at Default; the PDF is 11 × 8.5 in landscape. Print double-sided, flip on the short edge, fold the inner flap in first. Outside: two Google reviews with the QR on the flap, back cover with the three steps, a photo and contact, van cover. Inside: why us with the trust row, services, and the three "Service may include" lists with the rain callout (filled out 2026-09-19 after the first version read bare).
-- `social-square.html`: 1080 × 1080 px, not a print piece. Capture as an image at 100% zoom. Dark square with gold wordmark, tagline, services, phone and site.
+- `social-square.html`: 1080 × 1080 px, not a print piece. Capture as an image at 100% zoom. Dark square with the gold wordmark, descriptor, tagline, Tara Green's Google review, the three services, phone, site, free estimates and service area.
 
 Skipped (already present): none.
 
@@ -26,7 +26,7 @@ Skipped (already present): none.
 - missing, no slot in any piece: `business.legal_name`, `contact.socials`, `logo.mark`.
 - decided at review 2026-09-19: no street address or hours (service-area business), so "Serving Bandera, TX and the Texas Hill Country" prints instead; no offers; no prices.
 - photos: none reaches 300 dpi at full Letter width, so the flyer uses three service photos at 2.4 in each (about 500 dpi), the brochure cover uses the van at 3 in (about 520 dpi) and the two-up uses the van at 3.1 in.
-- copy choices, all verbatim from the site: the flyer, two-up and social lede is the hero paragraph rather than the about line; the tri-fold panel labels are the site's own section eyebrows ("Why Royal Treatment", "Our services", "Simple from start to finish", "Ready for a fresh start?", "Google reviews"); the two-up's service line joins the three service names with middle dots. "What to expect" on the brochure's last inside panel is a template label, not site copy.
+- copy choices, all verbatim from the site: every piece was filled out on 2026-09-19 after the template-minimal versions read bare. Reviews are spread so no piece repeats one: Brandi Robinson and Tara Green on the brochure, Janet Tyra on the flyer and two-up, Tara Green on the social square. The tri-fold panel labels are the site's own section eyebrows; the two-up's service line joins the three service names with middle dots; "What to expect" on the brochure and card is a template label, not site copy.
 - the repo `README.md` is stale: it describes a `v1/` folder and no custom domain, while the checked-in site is at the repo root with a `CNAME`.
 
 ## Invented copy

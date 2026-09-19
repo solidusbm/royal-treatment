@@ -73,15 +73,21 @@ body.bw { background: #ddd; }
            display: flex; flex-direction: column; box-shadow: 0 2px 14px rgba(0,0,0,.4); }
 .ss-logo { width: 420px; height: 84px; }
 .ss-eyebrow { margin: 18px 0 0; font: 700 22px/1.2 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); }
-.ss-heading { margin: 56px 0 0; font: 700 66px/1.05 var(--font-display); letter-spacing: -0.01em; max-width: 840px; }
+.ss-heading { margin: 40px 0 0; font: 700 60px/1.05 var(--font-display); letter-spacing: -0.01em; max-width: 840px; }
 .ss-lede { margin: 28px 0 0; font: 26px/1.5 var(--font-body); max-width: 780px; color: var(--muted); }
-.ss-list { list-style: none; margin: 56px 0 0; padding: 0; display: flex; flex-direction: column; gap: 24px; }
+.ss-list { list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
 .ss-list li { font: 600 30px/1.25 var(--font-body); padding-left: 44px; position: relative; }
 .ss-list li::before { content: ""; position: absolute; left: 0; top: 0.35em; width: 20px; height: 20px; background: var(--accent); }
 .ss-footer { margin-top: auto; padding-top: 48px; border-top: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
              display: flex; justify-content: space-between; align-items: center; font: 26px/1.3 var(--font-body); }
 .ss-site { color: var(--accent); font-weight: 700; letter-spacing: 0.02em; }   /* 26px: large text, 3:1 bar */
 .ss-muted { color: var(--muted); }
+.ss-review { margin: 36px 0 0; }
+.ss-review .ss-stars { margin: 0; font: 28px/1 var(--font-body); color: var(--accent); letter-spacing: 0.14em; }
+.ss-review blockquote { margin: 14px 0 0; font: 600 26px/1.35 var(--font-display); max-width: 860px; }
+.ss-review cite { display: block; margin-top: 10px; font: italic 22px/1.3 var(--font-body); color: var(--muted); }
+.ss-footer { flex-wrap: wrap; row-gap: 14px; }
+.ss-foot-line { flex-basis: 100%; font: 22px/1.3 var(--font-body); color: var(--muted); }
 </style>
 </head>
 <body>
@@ -96,7 +102,10 @@ body.bw { background: #ddd; }
     <div class="ss-logo" role="img" aria-label="Royal Treatment"></div>
     <p class="ss-eyebrow">Carpet, Upholstery, &amp; Tile Cleaning</p>
     <h2 class="ss-heading">Where Clean Homes Become Castles</h2>
-    <p class="ss-lede">Professional carpet, upholstery, and tile cleaning that leaves your home looking refreshed and feeling comfortable again.</p>
+    <div class="ss-review">
+      <p class="ss-stars">★★★★★</p>
+      <blockquote>“I highly recommend Royal Treatment! I hired them for a move out cleaning of my large carpeted living room. They were also able to do a repair near a high traffic area. Everything looks like new!”<cite>Tara Green, Google review</cite></blockquote>
+    </div>
     <ul class="ss-list">
       <li>Carpet Cleaning</li>
       <li>Upholstery Cleaning</li>
@@ -105,6 +114,7 @@ body.bw { background: #ddd; }
     <div class="ss-footer">
       <span class="ss-muted">830-328-8614</span>
       <span class="ss-site">royaltreatmentclean.net</span>
+      <span class="ss-foot-line">Free estimates &middot; Serving Bandera, TX and the Texas Hill Country</span>
     </div>
   </section>
 </div>
