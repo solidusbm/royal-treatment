@@ -17,7 +17,7 @@ business:
   name:        {value: "Royal Treatment", source: "index.html:6 <title>; index.html:336 footer", status: extracted}
   descriptor:  {value: "Carpet, Upholstery, & Tile Cleaning", source: "index.html:18 header logo alt; logo artwork", status: extracted}
   legal_name:  {value: null, status: missing}
-  licence:     {value: null, status: missing}   # no licence or registration number anywhere on the site
+  licence:     {value: null, status: provided, note: "No licence number exists (user, 2026-09-19); pieces carry no licence line"}
   service_area: {value: "Bandera, TX and the Texas Hill Country", source: "index.html:7 meta description", status: extracted}
 
 contact:                                  # blocking class; live site wins on conflict (none found)

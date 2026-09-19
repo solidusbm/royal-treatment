@@ -76,16 +76,24 @@ body.bw { background: #ddd; }
 .lf-band { padding: 0.5in 0.5in 0.4in; display: flex; align-items: flex-end; justify-content: space-between; gap: 0.3in; }
 .lf-band-line { margin: 0 0 0.04in; font: 700 9pt/1.2 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); }
 .lf-body { flex: 1; padding: 0.4in 0.5in 0.5in; display: flex; flex-direction: column; }
-.lf-photos { margin: 0.3in 0 0; display: flex; gap: 0.15in; }
-.lf-photos .lf-photo { flex: 1; margin: 0; height: 1.9in; }
-.lf-list li small { display: block; margin-top: 2pt; font: 400 10.5pt/1.35 var(--font-body); color: var(--muted); }
-.lf-heading { margin: 0.35in 0 0; font: 700 30pt/1.08 var(--font-display); letter-spacing: -0.01em; max-width: 6.4in; }
+/* Services as three columns, each photo above its own name and description. */
+.lf-grid { margin: 0.3in 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.2in; }
+.lf-grid .lf-photo { margin: 0; height: 1.9in; }
+.lf-grid h3 { margin: 0.12in 0 0; font: 700 13pt/1.2 var(--font-display); letter-spacing: -0.01em; }
+.lf-grid p { margin: 0.05in 0 0; font: 9.5pt/1.4 var(--font-body); color: var(--muted); }
+/* One Google review on a dark block, stars in raw accent (graphic, on ink at 11:1). */
+.lf-review { margin: 0.3in 0 0; padding: 0.25in 0.3in; display: flex; flex-direction: column; }
+.lf-review .lf-stars { margin: 0; font: 14pt/1 var(--font-body); color: var(--accent); letter-spacing: 0.14em; }
+.lf-review blockquote { margin: 0.12in 0 0; font: 600 12pt/1.35 var(--font-display); letter-spacing: -0.01em; }
+.lf-review cite { display: block; margin-top: 0.08in; font: italic 9pt/1.3 var(--font-body); color: var(--muted); }
+.lf-trust { margin: 0.25in 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.1in 0.35in; }
+.lf-trust li { font: 700 9pt/1.3 var(--font-body); letter-spacing: 0.04em; text-transform: uppercase; }
+.lf-trust li::before { content: "✓ "; color: var(--accent-ink); }
+.lf-cta { margin: 0 0 0.04in; font: 700 8.5pt/1.2 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); }
+.lf-heading { margin: 0 0 0; font: 700 28pt/1.08 var(--font-display); letter-spacing: -0.01em; max-width: 6.4in; }
 .lf-lede { margin: 0.2in 0 0; font: 12.5pt/1.5 var(--font-body); max-width: 5.8in; }
 .lf-photo { margin: 0.35in 0 0; width: 100%; height: 3.2in; overflow: hidden; }
 .lf-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lf-list { list-style: none; margin: 0.35in 0 0; padding: 0; max-width: 6in; display: flex; flex-direction: column; gap: 0.16in; }
-.lf-list li { font: 600 14pt/1.25 var(--font-body); padding-left: 0.3in; position: relative; }
-.lf-list li::before { content: ""; position: absolute; left: 0; top: 0.3em; width: 10pt; height: 10pt; background: var(--accent); }
 .lf-footer { margin-top: auto; padding-top: 0.3in; border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
              display: flex; justify-content: space-between; align-items: flex-end; font: 11pt/1.5 var(--font-body); }
 .lf-footer a { color: inherit; text-decoration: none; font-weight: 600; }
@@ -93,7 +101,6 @@ body.bw { background: #ddd; }
 .lf-qr-row { display: flex; align-items: center; gap: 0.15in; }
 .lf-qr { width: 0.9in; height: 0.9in; }
 .lf-qr-text { font: 9pt/1.4 var(--font-body); color: var(--muted); }
-.lf-licence { font: 8pt/1.4 var(--font-body); color: var(--muted); margin: 0.1in 0 0; }
 
 @media print { .lf-sheet { box-shadow: none; } }
 </style>
@@ -116,22 +123,39 @@ body.bw { background: #ddd; }
     <div class="lf-body">
       <h2 class="lf-heading">Where Clean Homes Become Castles</h2>
       <p class="lf-lede">Professional carpet, upholstery, and tile cleaning that leaves your home looking refreshed and feeling comfortable again.</p>
-      <div class="lf-photos">
-        <div class="lf-photo"><img src="../assets/img/services/carpet-cleaning-detail.webp" alt=""></div>
-        <div class="lf-photo"><img src="../assets/img/services/upholstery-cleaning-detail.webp" alt=""></div>
-        <div class="lf-photo"><img src="../assets/img/services/tile-grout-detail.webp" alt=""></div>
+      <div class="lf-grid">
+        <div>
+          <div class="lf-photo"><img src="../assets/img/services/carpet-cleaning-detail.webp" alt=""></div>
+          <h3>Carpet Cleaning</h3>
+          <p>Deep extraction that lifts soil, spots, odors, and the muddy mess Texas weather tracks indoors.</p>
+        </div>
+        <div>
+          <div class="lf-photo"><img src="../assets/img/services/upholstery-cleaning-detail.webp" alt=""></div>
+          <h3>Upholstery Cleaning</h3>
+          <p>Careful cleaning for sofas, chairs, sectionals, and other fabric furnishings—freshened without harsh residue.</p>
+        </div>
+        <div>
+          <div class="lf-photo"><img src="../assets/img/services/tile-grout-detail.webp" alt=""></div>
+          <h3>Tile &amp; Grout</h3>
+          <p>Professional pressure and extraction to break through buildup and brighten grout lines.</p>
+        </div>
       </div>
-      <ul class="lf-list">
-        <li>Carpet Cleaning<small>Deep extraction that lifts soil, spots, odors, and the muddy mess Texas weather tracks indoors.</small></li>
-        <li>Upholstery Cleaning<small>Careful cleaning for sofas, chairs, sectionals, and other fabric furnishings—freshened without harsh residue.</small></li>
-        <li>Tile &amp; Grout<small>Professional pressure and extraction to break through buildup and brighten grout lines.</small></li>
+      <div class="lf-review lf-face lf-face--reverse">
+        <p class="lf-stars">★★★★★</p>
+        <blockquote>“Very professional, quality work, highly recommend! They cleaned my couch for me on short notice for an event, I will be calling them back to clean my tile.”<cite>Janet Tyra, Google review</cite></blockquote>
+      </div>
+      <ul class="lf-trust">
+        <li>Free estimates</li>
+        <li>Residential care</li>
+        <li>Clear estimates</li>
+        <li>Friendly service</li>
       </ul>
       <div class="lf-footer">
         <div>
+          <p class="lf-cta">Ready for a fresh start?</p>
           <div><a href="tel:18303288614">830-328-8614</a></div>
           <div><a href="mailto:booking@royaltreatmentclean.net">booking@royaltreatmentclean.net</a></div>
           <div>Serving Bandera, TX and the Texas Hill Country</div>
-          <p class="lf-licence"><span class="ph" data-missing="business.licence">licence number</span></p>
         </div>
         <div class="lf-qr-row">
           <div class="lf-qr-text">Scan for more<br><span class="lf-site">royaltreatmentclean.net</span></div>
