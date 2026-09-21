@@ -51,7 +51,11 @@ colors:
     accent:     {palette: gold,         status: inferred, contrast: 1.55}   # graphics and display type only
     accent-ink: {palette: eyebrow-dark, status: inferred, contrast: 9.38}   # darkest gold-hue entry passing 4.5:1; eyebrow-gold fails at 3.86
     muted:      {palette: muted,        status: inferred, contrast: 5.25}
-  # reverse face (type on ink): paper/ink 17.21, accent/ink 11.12, muted/ink 3.28 (templates mix their own reverse muted)
+    # reverse face (type on ink), defaults: contrast is against reverse-paper
+    reverse-paper:      {palette: ink,   status: inferred}
+    reverse-ink:        {palette: cream, status: inferred, contrast: 17.21}
+    reverse-accent:     {palette: gold,  status: inferred, contrast: 11.12}
+    reverse-accent-ink: {palette: gold,  status: inferred, contrast: 11.12}
 
 fonts:
   - family: "Arial"
