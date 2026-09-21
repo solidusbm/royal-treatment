@@ -40,7 +40,8 @@ Skipped (already present): none.
 - contrast, normal face: ink/paper 17.21:1, accent-ink/paper 9.38:1, muted/paper 5.25:1; reverse face: paper/ink 17.21:1, accent/ink 11.12:1, muted/ink 7.77:1
 - placeholder inventory: none
 - sheet lint: PASS, 5 files (fixed sheet size equals `@page`, hint states the size)
-- browser render: business card saved as PDF at 3.5 × 2 in from Chrome via the code-server proxy on 2026-09-19, once Destination was Save as PDF. The other four pieces are not yet eyeballed; no Chrome starts on the VPS box (sysroot missing libglib and libGL).
+- browser render: all five pieces rendered headlessly on 2026-09-21 (`scripts/render.mjs`, Chrome 152) and looked at; the four print PDFs came out at trim size with the right page counts. Earlier: card saved at 3.5 × 2 in from the user's Chrome on 2026-09-19, all five eyeballed with no clipping.
+- 2026-09-21: the masked wordmark is now inlined as a data URI in every piece, because Chrome refuses a mask image from another origin and a piece opened from disk (file://) is one; the same piece over GitHub Pages was always fine.
 
 ## Next
 
